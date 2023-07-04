@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1 or /categories/1.json
   def show
-    @category = Category.find(params[:id])
+    @category = Category.includes(:entities).find(params[:id])
     @entities = @category.entities
   end
 
@@ -25,15 +25,16 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     @category.author = current_user
-
+  
     respond_to do |format|
       if @category.save
-        redirect_to authenticated_root_path, notice: "Category was successfully created."
+        format.html { redirect_to authenticated_root_path, notice: "Category was successfully created." }
       else
-        render :new, status: :unprocessable_entity
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
+  
 
   # PATCH/PUT /categories/1 or /categories/1.json
   def update
