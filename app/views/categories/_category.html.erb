@@ -1,12 +1,14 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
-
-  <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
-  </p>
-
-</div>
+<li class="category-list">
+  <div class="img-container">
+    <%= link_to  user_category_path( current_user, category) do %>
+      <%= image_tag category.icon, alt: 'My Image' %>
+    <% end %>
+  </div>
+  <div class="details">
+    <p><%= link_to  category.name.capitalize, user_category_path( current_user, category) %></p>
+    <p class="date"><%=  category.created_at.strftime("%d %b %Y") %></p>
+  </div>
+  <div class="amount">
+    <p>$<%= category.entities.sum(:amount)%></p>
+  </div>
+</li>
