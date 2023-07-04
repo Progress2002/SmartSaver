@@ -6,18 +6,17 @@ RSpec.describe Category, type: :model do
     Category.new(name: 'Food', icon: 'food.jpng', author: user)
   end
 
-  it "should not be valid with name value set to nil" do
+  it 'should not be valid with name value set to nil' do
     subject.name = nil
     expect(subject).to_not be_valid
   end
 
-  it "should not be valid with icon value set to  nil" do
+  it 'should not be valid with icon value set to  nil' do
     subject.icon = nil
     expect(subject).to_not be_valid
   end
 
-  it "should be valid " do
+  it 'should be valid ' do
     expect(subject).to be_valid
   end
-  
 end
