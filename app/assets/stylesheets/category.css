@@ -68,8 +68,19 @@
 }
 
 .category-list .amount {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
     margin-top: 10px;
     font-size: 18px;
+}
+
+.category-list .amount button {
+    border: none;
+    color: #3778c2;
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 .btn {
@@ -89,6 +100,7 @@
     padding: 10px 0;
     border: 2px solid rgb(217, 217, 217);
     color: rgb(239, 239, 239);
+    cursor: pointer;
 }
 
 /* Category form section */

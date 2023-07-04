@@ -10,5 +10,15 @@
   </div>
   <div class="amount">
     <p>$<%= category.entities.sum(:amount)%></p>
+    
+    <% if can? :destroy, category %>
+      <%= button_to user_category_path(current_user, category),
+        method: :delete,
+        data: { confirm: 'Are you sure you want to delete this category?' },
+        title: "Delete #{category.name.capitalize} category" do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+    <% end %>
+    
   </div>
 </li>

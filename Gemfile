@@ -79,3 +79,5 @@ gem 'devise'
 gem "font-awesome-sass", "~> 6.4.0"
 
 gem 'sassc'
+
+gem 'cancancan'

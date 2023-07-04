@@ -49,15 +49,17 @@
     text-align: center;
     padding: 10px;
     font-weight: bolder;
-}
-
-.transaction-form  form select option:active {
-    color: black;
+    cursor: pointer;
 }
 
 .transaction-form  form select option:nth-child(even) {
     background-color: rgb(239, 239, 239);
 } 
+
+.transaction-form  form select option:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: aliceblue;
+}
 
 .select-category-title {
     text-align: center;

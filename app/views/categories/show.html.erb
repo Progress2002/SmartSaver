@@ -8,10 +8,12 @@
   <% else %>
       <div class="transaction-details-container">
         <% @entities.each do |entity| %>
-          <div class="transaction-details">
-            <p><%= entity.name.capitalize%></p>
-            <p>$<%= entity.amount%></p>
-          </div>
+          <% if can? :read,  entity%>
+            <div class="transaction-details">
+              <p><%= entity.name.capitalize%></p>
+              <p>$<%= entity.amount%></p>
+            </div>
+          <% end %>
         <% end %>
       </div>
   <% end %>

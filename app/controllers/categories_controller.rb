@@ -53,10 +53,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.destroy
 
-    respond_to do |format|
-      format.html { redirect_to categories_url, notice: "Category was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to authenticated_root_path, notice: "Category was successfully destroyed."
   end
 
   private
