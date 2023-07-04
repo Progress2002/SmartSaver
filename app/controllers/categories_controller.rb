@@ -3,11 +3,13 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.all
+    @categories = Category.where(author_id: current_user.id).order(created_at: :desc) || []
   end
 
   # GET /categories/1 or /categories/1.json
   def show
+    @category = Category.find(params[:id])
+    @entities = @category.entities
   end
 
   # GET /categories/new
@@ -22,14 +24,13 @@ class CategoriesController < ApplicationController
   # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)
+    @category.author = current_user
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to category_url(@category), notice: "Category was successfully created." }
-        format.json { render :show, status: :created, location: @category }
+        redirect_to authenticated_root_path, notice: "Category was successfully created."
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        render :new, status: :unprocessable_entity
       end
     end
   end
@@ -49,6 +50,7 @@ class CategoriesController < ApplicationController
 
   # DELETE /categories/1 or /categories/1.json
   def destroy
+    @category = Category.find(params[:id])
     @category.destroy
 
     respond_to do |format|
@@ -65,6 +67,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:name, :icon)
+      params.require(:category).permit(:name, :icon).merge(author_id: current_user.id)
     end
 end
