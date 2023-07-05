@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1 or /categories/1.json
   def show
     @category = Category.includes(:entities).find(params[:id])
-    @entities = @category.entities
+    @entities = @category.entities.order(created_at: :desc)
   end
 
   # GET /categories/new
