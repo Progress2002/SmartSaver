@@ -20,8 +20,7 @@
   - [📝 License ](#-license-)
 
 ## 📖 SmartSaver<a name="about-project"></a>
-
- is a web-based budgeting application built using Ruby on Rails and PostgreSQL. This application allows users to track their income and expenses and provides a visual representation of their budget. Users can add or remove income and expenses, and the application automatically calculates the remaining budget. The website is responsive and optimized for use on desktop and mobile devices
+SmartSaver is a web-based budgeting application built using Ruby on Rails and PostgreSQL. With SmartSaver, users can effortlessly track their income and expenses, gaining full control over their finances. 💰💼
 
 ## 🛠 Built With <a name="built-with"></a>
 
