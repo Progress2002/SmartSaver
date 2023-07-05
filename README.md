@@ -41,11 +41,11 @@
 
 ### 🚀 Live Demo <a name="live-demo"></a>
 
-- [Budget Tracker](https://budget-tracker-azmz.onrender.com)
+- [SmartSaver](https://smartsaver.onrender.com)
 
 ### 📽️ Video Presentation <a name="video"></a>
 
-[Video Link](https://www.loom.com/share/3890fea7984b4fabab1398b92ab55991)
+[Video Link](https://www.loom.com/share/5d571397947b49f0a677c66a047801e0?sid=14c5b6cf-58cf-45bb-bf08-e4a63cb61bbb)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
