@@ -1,7 +1,14 @@
 <li class="category-list">
   <div class="img-container">
     <%= link_to  user_category_path( current_user, category) do %>
-      <%= image_tag category.icon, alt: 'My Image' %>
+      <% def valid_image_url?(url) %>
+        <% url.present? && url =~ /\Ahttps?:\/\/\S+\z/ %>
+      <% end %>
+      <% if valid_image_url?(category.icon) %>
+        <%= image_tag category.icon, alt: 'My Image' %>
+      <% else %>
+        <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJcT7PQqrhP-fcTi2K3UTvx1CZMmLvFPvupUZivUCJMFDRsX4LxhTRuenl5VHpbhs7elI&usqp=CAU', alt: 'My Image' %>
+      <% end %>
     <% end %>
   </div>
   <div class="details">
