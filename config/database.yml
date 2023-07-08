@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: SmartSaver_production
-  username: SmartSaver
-  password: <%= ENV["SMARTSAVER_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
